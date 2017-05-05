@@ -37,7 +37,7 @@ class MainActivity : BaseActivity() {
 
         toolbarMixin.onCreate()
 
-        Timber.tag("ONI Debug")
+        Timber.tag("Debug")
 
         rxPreferences.getString(HELLO_WORLD_KEY).set("Hello World")
         val pref = rxPreferences.getString(HELLO_WORLD_KEY).asObservable()
