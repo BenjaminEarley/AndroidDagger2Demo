@@ -2,7 +2,7 @@ package com.benjaminearley.githubdemo.network
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.benjaminearley.githubdemo.base.ActivityScope
+import com.benjaminearley.githubdemo.base.BaseActivityScope
 import dagger.Module
 import dagger.Provides
 import io.reactivex.Single
@@ -20,7 +20,7 @@ class GitHubModule {
     }
 
     @Provides
-    @ActivityScope
+    @BaseActivityScope
     fun providesGitHubInterface(retrofit: Retrofit): GitHubApiInterface {
         return retrofit.create<GitHubApiInterface>(GitHubApiInterface::class.java)
     }

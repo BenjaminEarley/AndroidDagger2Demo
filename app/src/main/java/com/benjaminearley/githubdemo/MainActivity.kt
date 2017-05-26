@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.benjaminearley.githubdemo.base.BaseActivity
 import com.benjaminearley.githubdemo.mixin.ToolbarMixin
 import com.benjaminearley.githubdemo.network.GitHubModule.GitHubApiInterface
-import com.benjaminearley.githubdemo.network.retrofitListOf
 import com.benjaminearley.githubdemo.util.pipe
 import com.bumptech.glide.Glide
 import com.f2prateek.rx.preferences2.RxSharedPreferences
@@ -33,7 +32,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        activityComponent.inject(this)
+        baseActivityComponent.inject(this)
 
         toolbarMixin.onCreate()
 

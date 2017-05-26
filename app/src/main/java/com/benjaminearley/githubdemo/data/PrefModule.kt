@@ -1,7 +1,7 @@
 package com.benjaminearley.githubdemo.data
 
 import android.content.SharedPreferences
-import com.benjaminearley.githubdemo.base.ActivityScope
+import com.benjaminearley.githubdemo.base.BaseActivityScope
 import com.f2prateek.rx.preferences2.RxSharedPreferences
 import dagger.Module
 import dagger.Provides
@@ -10,7 +10,7 @@ import dagger.Provides
 class PrefModule {
 
     @Provides
-    @ActivityScope
+    @BaseActivityScope
     fun provideRxPreferences(sharedPreferences: SharedPreferences): RxSharedPreferences =
         RxSharedPreferences.create(sharedPreferences)
 }

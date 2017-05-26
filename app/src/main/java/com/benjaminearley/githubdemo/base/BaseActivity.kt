@@ -9,13 +9,13 @@ import com.benjaminearley.githubdemo.network.GitHubModule
 
 open class BaseActivity : AppCompatActivity() {
 
-    lateinit var activityComponent: ActivityComponent
+    lateinit var baseActivityComponent: BaseActivityComponent
         private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        activityComponent = DaggerActivityComponent.builder()
+        baseActivityComponent = DaggerBaseActivityComponent.builder()
             .appComponent(App.appComponent)
             .gitHubModule(GitHubModule())
             .prefModule(PrefModule())

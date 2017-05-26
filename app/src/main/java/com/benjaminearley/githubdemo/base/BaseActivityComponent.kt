@@ -7,8 +7,8 @@ import com.benjaminearley.githubdemo.mixin.MixinModule
 import com.benjaminearley.githubdemo.network.GitHubModule
 import dagger.Component
 
-@ActivityScope
+@BaseActivityScope
 @Component(dependencies = arrayOf(AppComponent::class), modules = arrayOf(GitHubModule::class, PrefModule::class, MixinModule::class))
-interface ActivityComponent {
+interface BaseActivityComponent {
     fun inject(activity: MainActivity)
 }

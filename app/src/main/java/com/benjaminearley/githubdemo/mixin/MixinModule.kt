@@ -1,7 +1,7 @@
 package com.benjaminearley.githubdemo.mixin
 
-import com.benjaminearley.githubdemo.base.ActivityScope
 import com.benjaminearley.githubdemo.base.BaseActivity
+import com.benjaminearley.githubdemo.base.BaseActivityScope
 import dagger.Module
 import dagger.Provides
 
@@ -9,7 +9,7 @@ import dagger.Provides
 class MixinModule(private val activity: BaseActivity) {
 
     @Provides
-    @ActivityScope
+    @BaseActivityScope
     fun providesToolbarMixin(): ToolbarMixin {
         return ToolbarMixin(activity)
     }
