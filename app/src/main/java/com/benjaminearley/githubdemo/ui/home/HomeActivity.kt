@@ -1,6 +1,7 @@
-package com.benjaminearley.githubdemo
+package com.benjaminearley.githubdemo.ui.home
 
 import android.os.Bundle
+import com.benjaminearley.githubdemo.R
 import com.benjaminearley.githubdemo.base.BaseActivity
 import com.benjaminearley.githubdemo.mixin.ToolbarMixin
 import com.benjaminearley.githubdemo.network.GitHubModule.GitHubApiInterface
@@ -11,12 +12,12 @@ import com.jakewharton.rxbinding2.view.clicks
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.content_home.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class MainActivity : BaseActivity() {
+class HomeActivity : BaseActivity() {
 
     @Inject
     lateinit var githubApiInterface: GitHubApiInterface
@@ -30,7 +31,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
 
         baseActivityComponent.inject(this)
 

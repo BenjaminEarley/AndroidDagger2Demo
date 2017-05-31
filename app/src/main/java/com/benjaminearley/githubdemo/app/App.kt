@@ -16,9 +16,6 @@ import javax.inject.Inject
 class App : Application() {
 
     companion object {
-        lateinit var instance: App
-            @Synchronized get
-            private set
         lateinit var appComponent: AppComponent
             private set
     }
@@ -29,8 +26,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        instance = this
-
         Stetho.initializeWithDefaults(this)
 
         appComponent = DaggerAppComponent.builder()
@@ -38,13 +33,13 @@ class App : Application() {
             .netModule(NetModule(BuildConfig.github_base_url))
             .build()
 
+        appComponent.inject(this)
+
         if (BuildConfig.FLAVOR == "release") {
             Timber.plant(ProductionTree())
         } else {
             Timber.plant(Timber.DebugTree())
         }
-
-        appComponent.inject(this)
 
         Glide.get(this).register(GlideUrl::class.java, InputStream::class.java, OkHttpUrlLoader.Factory(okHttpClient))
     }
